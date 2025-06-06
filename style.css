@@ -1,0 +1,192 @@
+@font-face {
+  font-family: 'NintendoDS';
+  src: url('Nintendo-DS-BIOS.ttf') format('truetype');
+}
+
+body {
+  background-image: url('download.jpg');
+  background-color: lightblue;
+  font-family: 'NintendoDS', cursive, sans-serif;
+  color: #003366; /* dark blue text */
+  margin: 20px;
+  cursor: url('https://cur.cursors-4u.net/nature/nat-10/nat928.cur'), auto;
+}
+
+.page-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: rgba(230, 240, 255, 0.85);
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border: 2px solid #99bbff;
+  min-height: 100vh;
+}
+
+h1 {
+  color: #003366;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 32px;
+}
+
+a {
+  color: #003366;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+marquee {
+  color: #3399ff;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.inner-layout {
+  display: flex;
+  gap: 20px;
+}
+
+/* Container for old Windows style box with outer thin blue border */
+.window-box {
+  position: relative; /* for pseudo-element */
+  background-color: #e6f0ff;
+  border: 2px solid #99bbff;
+  box-shadow:
+    inset 2px 2px 0 #cce0ff,
+    inset -2px -2px 0 #6688cc;
+  padding: 15px;
+  font-family: 'NintendoDS', cursive, sans-serif;
+  color: #003366;
+  font-size: 14px;
+  border-radius: 0;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+/* Thin blue outer border */
+.window-box::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 1px solid #4a90e2; /* brighter thin blue */
+  pointer-events: none;
+  z-index: -1;
+}
+
+.side-menu {
+  width: 160px;
+  text-align: center;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.side-menu h3 {
+  color: #003366;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.side-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.side-menu li {
+  margin: 10px 0;
+}
+
+.side-menu a {
+  color: #003366;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.side-menu a:hover {
+  text-decoration: underline;
+  color: #3366cc;
+}
+
+.main-content {
+  flex: 1;
+}
+
+.blog-post h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  background-color: #cce0ff;
+  border: 2px outset #99bbff;
+  padding: 5px;
+  font-family: 'NintendoDS', cursive, sans-serif;
+  font-size: 14px;
+  color: #003366;
+  box-sizing: border-box;
+  margin-bottom: 12px;
+  resize: vertical;
+}
+
+button {
+  background-color: #cce0ff;
+  border: 2px outset #99bbff;
+  padding: 6px 14px;
+  font-family: 'NintendoDS', cursive, sans-serif;
+  font-weight: bold;
+  color: #003366;
+  cursor: pointer;
+  box-shadow:
+    1px 1px 0 #6688cc,
+    -1px -1px 0 #cce0ff;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #b3d1ff;
+  border: 2px inset #6688cc;
+  box-shadow: none;
+}
+
+.comment-box {
+  width: 260px;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+#comments-list h4 {
+  color: #003366;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+#comments-list p {
+  background: #b3d1ff;
+  border: 2px solid #6688cc;
+  padding: 8px;
+  border-radius: 3px;
+  margin-top: 8px;
+  color: #003366;
+  font-family: 'NintendoDS', cursive, sans-serif;
+  font-size: 14px;
+}
+
+.footer {
+  margin-top: 40px;
+  font-size: 12px;
+  color: #003366;
+  text-align: center;
+}

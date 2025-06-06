@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My 00s Blog - Welcome to My Page!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="page-container">
+  
+<marquee behavior="scroll" direction="left" scrollamount="5">
+  <img src="vividcolors.gif" alt="Glitter"><img src="vividcolors.gif" alt="Glitter">
+  <img src="vividcolors.gif" alt="Glitter"><img src="vividcolors.gif" alt="Glitter">
+</marquee>
+
+    <h1>~*~ Medium Ugly ~*~</h1>
+
+    <div class="inner-layout">
+      
+      <!-- Sidebar menu -->
+      <nav class="side-menu window-box">
+        <h3>★ Menu ★</h3>
+        <ul>
+          <li><img src="5ri1MfI.gif" alt="Glitter"><a href="index.html">home</a></li>
+          <li><img src="5ri1MfI.gif" alt="Glitter"><a href="about.html">about me</a></li>
+          <li><img src="5ri1MfI.gif" alt="Glitter"><a href="music.html">music</a></li>
+        </ul>
+      </nav>
+
+      <!-- Main blog content -->
+      <div class="main-content window-box">
+
+        <div class="blog-post">
+          <h2>june 6 - first post!</h2>
+          <p>welcome to medium ugly, the personal site of internet user ru... etc.</p>
+        </div>
+
+        <div class="blog-post">
+          <h2>artists i recommend</h2>
+          <p>after</p>
+        </div>
+
+        <div class="blog-post">
+          <h2>music player</h2>
+          <audio controls>
+            <source src="planet.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+
+        <p><a href="guestbook.html">sign my guestbook!</a></p>
+
+      </div>
+
+      <!-- Comment box -->
+      <div class="comment-box window-box">
+        <h3>Leave a comment</h3>
+        <form id="comment-form">
+          <label for="name">Name:</label><br>
+          <input type="text" id="name" name="name" required><br>
+
+          <label for="comment">Comment:</label><br>
+          <textarea id="comment" name="comment" rows="6" required></textarea><br>
+
+          <button type="submit">Submit</button>
+        </form>
+
+        <div id="comments-list">
+          <h4>Comments:</h4>
+          <!-- Comments will appear here -->
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer">
+      <p>© ru dahm</p>
+    </div>
+
+  </div>
+
+  <!-- Persistent Comments Script -->
+  <script>
+    const form = document.getElementById('comment-form');
+    const commentsList = document.getElementById('comments-list');
+
+    // Load saved comments from localStorage
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
+      savedComments.forEach(comment => {
+        appendComment(comment.name, comment.text);
+      });
+    });
+
+    // Add comment on submit
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = form.name.value.trim();
+      const text = form.comment.value.trim();
+
+      if (name && text) {
+        appendComment(name, text);
+
+        const comments = JSON.parse(localStorage.getItem('comments')) || [];
+        comments.push({ name, text });
+        localStorage.setItem('comments', JSON.stringify(comments));
+
+        form.reset();
+      }
+    });
+
+    function appendComment(name, text) {
+      const commentElement = document.createElement('p');
+      commentElement.innerHTML = `<strong>${name}:</strong> ${text}`;
+      commentsList.appendChild(commentElement);
+    }
+  </script>
+
+</body>
+</html>
