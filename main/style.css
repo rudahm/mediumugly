@@ -7,13 +7,13 @@ body {
   background-image: url('download.jpg');
   background-color: lightblue;
   font-family: 'NintendoDS', cursive, sans-serif;
-  color: #003366; /* dark blue text */
+  color: #003366;
   margin: 20px;
   cursor: url('https://cur.cursors-4u.net/nature/nat-10/nat928.cur'), auto;
 }
 
 .page-container {
-  max-width: 800px;
+  max-width: 720px; /* Smaller overall width */
   margin: 0 auto;
   background-color: rgba(230, 240, 255, 0.85);
   padding: 20px;
@@ -26,7 +26,8 @@ h1 {
   color: #003366;
   font-weight: bold;
   margin-bottom: 20px;
-  font-size: 32px;
+  font-size: 28px;
+  text-align: center;
 }
 
 a {
@@ -48,27 +49,27 @@ marquee {
 
 .inner-layout {
   display: flex;
-  gap: 20px;
+  gap: 10px;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
 }
-
-/* Container for old Windows style box with outer thin blue border */
+/* Reusable window box style */
 .window-box {
-  position: relative; /* for pseudo-element */
+  position: relative;
   background-color: #e6f0ff;
   border: 2px solid #99bbff;
   box-shadow:
     inset 2px 2px 0 #cce0ff,
     inset -2px -2px 0 #6688cc;
-  padding: 15px;
+  padding: 10px;
   font-family: 'NintendoDS', cursive, sans-serif;
   color: #003366;
   font-size: 14px;
-  border-radius: 0;
   box-sizing: border-box;
   margin-bottom: 20px;
 }
 
-/* Thin blue outer border */
 .window-box::before {
   content: "";
   position: absolute;
@@ -76,23 +77,21 @@ marquee {
   left: -4px;
   right: -4px;
   bottom: -4px;
-  border: 1px solid #4a90e2; /* brighter thin blue */
+  border: 1px solid #4a90e2;
   pointer-events: none;
   z-index: -1;
 }
 
+/* Compact left-aligned side menu */
 .side-menu {
-  width: 160px;
-  text-align: center;
+  width: 100px;
+  text-align: left;
   flex-shrink: 0;
-  margin: 0;
 }
 
 .side-menu h3 {
-  color: #003366;
-  margin-bottom: 10px;
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 8px;
 }
 
 .side-menu ul {
@@ -102,13 +101,15 @@ marquee {
 }
 
 .side-menu li {
-  margin: 10px 0;
+  margin: 6px 0;
+  font-size: 13px;
 }
 
 .side-menu a {
+  display: inline-block;
+  width: 100%;
   color: #003366;
   text-decoration: none;
-  font-weight: bold;
 }
 
 .side-menu a:hover {
@@ -116,14 +117,27 @@ marquee {
   color: #3366cc;
 }
 
+/* Main blog content takes majority of width */
 .main-content {
   flex: 1;
+  min-width: 300px;
+}
+
+.blog-post {
+  margin-bottom: 25px;
+  line-height: 1.6;
 }
 
 .blog-post h2 {
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: 16px;
+  margin-bottom: 8px;
   font-weight: bold;
+}
+
+/* Compact comment box on the right */
+.comment-box {
+  width: 120px;
+  flex-shrink: 0;
 }
 
 input[type="text"],
@@ -131,23 +145,24 @@ textarea {
   width: 100%;
   background-color: #cce0ff;
   border: 2px outset #99bbff;
-  padding: 5px;
+  padding: 4px;
   font-family: 'NintendoDS', cursive, sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   color: #003366;
   box-sizing: border-box;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   resize: vertical;
 }
 
 button {
   background-color: #cce0ff;
   border: 2px outset #99bbff;
-  padding: 6px 14px;
+  padding: 5px 10px;
   font-family: 'NintendoDS', cursive, sans-serif;
   font-weight: bold;
   color: #003366;
   cursor: pointer;
+  font-size: 13px;
   box-shadow:
     1px 1px 0 #6688cc,
     -1px -1px 0 #cce0ff;
@@ -160,33 +175,25 @@ button:hover {
   box-shadow: none;
 }
 
-.comment-box {
-  width: 260px;
-  flex-shrink: 0;
-  margin: 0;
-}
-
 #comments-list h4 {
-  color: #003366;
-  font-weight: bold;
-  margin-top: 15px;
-  margin-bottom: 10px;
+  font-size: 13px;
+  margin-top: 12px;
+  margin-bottom: 6px;
 }
 
 #comments-list p {
   background: #b3d1ff;
   border: 2px solid #6688cc;
-  padding: 8px;
+  padding: 5px;
+  font-size: 12px;
+  margin-top: 6px;
   border-radius: 3px;
-  margin-top: 8px;
-  color: #003366;
-  font-family: 'NintendoDS', cursive, sans-serif;
-  font-size: 14px;
+  word-wrap: break-word;
 }
 
 .footer {
-  margin-top: 40px;
-  font-size: 12px;
+  margin-top: 20px;
+  font-size: 11px;
   color: #003366;
   text-align: center;
 }
